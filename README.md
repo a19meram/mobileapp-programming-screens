@@ -3,37 +3,41 @@
 
 **Skriv din rapport här!**
 
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Den andra duggan gick ut på att man skulle lägga till en andra Activity för att sedan kunna navigera mellan den första sida till andra,
+detta gör man med hjälp av knappar som finns på båda sidorna där knapparna är länkad till att utföra skiftningen mellan sidorna.
+Sista kravet går ut på att man lägger till en fragment i den andra Activity som vi har skapat i första steget. Koden nedan visar skapandet av knappen som navigerar mellan,
+där knappen kommer att placeras i mitten av skärmen med hjälp av layout_constraint.
+I figur 1 kan vi se hur knappen för den första Activity är placerad där layout_constraint är använt för att placera den. I figur 2 kan vi se resultatet av koden som visas ner
+där den berör hur en fragment struktureras i en xml-fil och dess design för att sedan kunna få den illustrerande figuren som ett resultat
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+     <Button
+            android:id="@+id/My_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Öppna Second Activity"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+     <fragment
+             android:name="com.example.screens.BlankFragment"
+             android:layout_width="250dp"
+             android:layout_height="250dp"
+             android:tag="blank_fragment"
+             app:layout_constraintBottom_toTopOf="@+id/name"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](Figur1.png)
+![](Figur2.png)
 
 Läs gärna:
 

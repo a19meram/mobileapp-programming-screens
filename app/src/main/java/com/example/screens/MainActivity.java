@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity2.class);
                 intent.putExtra("name", "Meron"); // Optional
-                intent.putExtra("number", 1); // Optional
                 startActivity(intent);
             }
         });
